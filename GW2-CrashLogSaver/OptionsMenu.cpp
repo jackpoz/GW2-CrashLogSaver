@@ -6,7 +6,22 @@ OptionsMenu optionsMenu;
 
 void OptionsMenu::Draw()
 {	
-	ImGui::Text("Configure your crash log options here");
+	if (ImGui::Checkbox("Enable AddVectoredExceptionHandler", &enableAddVectoredExceptionHandler))
+	{
+	}
+	if (ImGui::Checkbox("Enable AddVectoredContinueHandler", &enableAddVectoredContinueHandler))
+	{
+	}
+	if (ImGui::Checkbox("Enable SetUnhandledExceptionFilter", &enableSetUnhandledExceptionFilter))
+	{
+	}
+	if (ImGui::Checkbox("Enable _set_invalid_parameter_handler", &enable_set_invalid_parameter_handler))
+	{
+	}
+	if (ImGui::Checkbox("Enable _CrtSetReportMode", &enable_CrtSetReportMode))
+	{
+	}
+
 	ImGui::Separator();
 	ImGui::Text("DEBUG ONLY!");
 	if (ImGui::Button("Throw a std::runtime_error"))
