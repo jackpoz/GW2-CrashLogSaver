@@ -1,4 +1,5 @@
 #include "OptionsMenu.h"
+#include "CrashHandler.h"
 #include "version.h"
 
 #include <ArcdpsExtension/arcdps_structs.h>
@@ -46,6 +47,7 @@ arcdps_exports* mod_init()
 
 uintptr_t mod_release()
 {
+	crashHandler.Unload();
 	return 0;
 }
 

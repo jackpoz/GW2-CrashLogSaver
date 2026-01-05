@@ -169,10 +169,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArcdpsAPI.cpp" />
+    <ClCompile Include="CrashHandler.cpp" />
+    <ClCompile Include="CrashTriggerer.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="OptionsMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CrashHandler.h" />
+    <ClInclude Include="CrashTriggerer.h" />
     <ClInclude Include="OptionsMenu.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="version.h" />
