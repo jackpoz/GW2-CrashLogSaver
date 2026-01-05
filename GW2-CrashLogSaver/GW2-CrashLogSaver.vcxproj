@@ -170,8 +170,10 @@
   <ItemGroup>
     <ClCompile Include="ArcdpsAPI.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="OptionsMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OptionsMenu.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>

@@ -1,3 +1,4 @@
+#include "OptionsMenu.h"
 #include "version.h"
 
 #include <ArcdpsExtension/arcdps_structs.h>
@@ -50,4 +51,5 @@ uintptr_t mod_release()
 
 void mod_options()
 {
+	optionsMenu.Draw();
 }
