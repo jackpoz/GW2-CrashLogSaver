@@ -1,3 +1,5 @@
+#include "version.h"
+
 #include <ArcdpsExtension/arcdps_structs.h>
 #include <imgui/imgui.h>
 
@@ -32,7 +34,7 @@ arcdps_exports* mod_init()
 	arc_exports.imguivers = IMGUI_VERSION_NUM;
 	arc_exports.size = sizeof(arcdps_exports);
 	arc_exports.out_name = "GW2-CrashLogSaver";
-	arc_exports.out_build = "0.0.1";
+	arc_exports.out_build = VERSION_FULL_STRING;
 	arc_exports.options_end = mod_options;
 	//arc_exports.imgui = mod_imgui;
 	//arc_exports.wnd_nofilter = mod_wnd;
