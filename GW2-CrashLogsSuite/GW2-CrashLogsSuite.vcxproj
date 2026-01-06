@@ -73,10 +73,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>arcdps_crashlogsaver</TargetName>
+    <TargetName>arcdps_crashlogssuite</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetName>arcdps_crashlogsaver</TargetName>
+    <TargetName>arcdps_crashlogssuite</TargetName>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnableManifest>true</VcpkgEnableManifest>

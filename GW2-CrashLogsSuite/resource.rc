@@ -68,9 +68,9 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "FileVersion", VERSION_FILEVERSION_STRING
-            VALUE "InternalName", "GW2-CrashLogSaver.dll"
+            VALUE "InternalName", "GW2-CrashLogsSuite.dll"
             VALUE "LegalCopyright", "Copyright (C) 2026"
-            VALUE "OriginalFilename", "GW2-CrashLogSaver.dll"
+            VALUE "OriginalFilename", "GW2-CrashLogsSuite.dll"
             VALUE "ProductVersion", VERSION_PRODUCTVERSION_STRING
         END
     END

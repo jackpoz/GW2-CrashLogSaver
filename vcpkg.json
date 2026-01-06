@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
-  "name": "gw2-crashlogsaver",
+  "name": "gw2-crashlogssuite",
   "version-string": "0.0.1",
   "dependencies": [
     "arcdps-extension",

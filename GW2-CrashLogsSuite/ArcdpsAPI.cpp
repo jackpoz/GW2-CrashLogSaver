@@ -32,10 +32,10 @@ extern "C" __declspec(dllexport) void* get_release_addr()
 arcdps_exports* mod_init()
 {
 	memset(&arc_exports, 0, sizeof(arcdps_exports));
-	arc_exports.sig = 0x20641C20; // CRC32 of "GW2-CrashLogSaver"
+	arc_exports.sig = 0x452C2152; // CRC32 of "GW2-CrashLogsSuite"
 	arc_exports.imguivers = IMGUI_VERSION_NUM;
 	arc_exports.size = sizeof(arcdps_exports);
-	arc_exports.out_name = "GW2-CrashLogSaver";
+	arc_exports.out_name = "GW2-CrashLogsSuite";
 	arc_exports.out_build = VERSION_FULL_STRING;
 	arc_exports.options_end = mod_options;
 	//arc_exports.imgui = mod_imgui;

@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="GW2-CrashLogSaver/GW2-CrashLogSaver.vcxproj" Id="93ec0fab-7e74-4916-afbe-58c8346d180d" />
+  <Project Path="GW2-CrashLogsSuite/GW2-CrashLogsSuite.vcxproj" Id="93ec0fab-7e74-4916-afbe-58c8346d180d" />
 </Solution>

@@ -24,7 +24,7 @@ void CrashTriggerer::AccessDeletedMemory()
 
 void CrashTriggerer::Assert()
 {
-	assert(false && "This is a test assertion failure from GW2-CrashLogSaver");
+	assert(false && "This is a test assertion failure from GW2-CrashLogsSuite");
 }
 
 void CrashTriggerer::NullDereference()
@@ -45,14 +45,14 @@ void CrashTriggerer::NullDereferenceWithTryExcept()
 
 void CrashTriggerer::ThrowException()
 {
-	throw std::runtime_error("This is a test exception thrown from GW2-CrashLogSaver");
+	throw std::runtime_error("This is a test exception thrown from GW2-CrashLogsSuite");
 }
 
 void CrashTriggerer::ThrowExceptionWithTryCatch()
 {
 	try
 	{
-		throw std::runtime_error("This is a test exception thrown from GW2-CrashLogSaver in a try/catch");
+		throw std::runtime_error("This is a test exception thrown from GW2-CrashLogsSuite in a try/catch");
 	}
 	catch (const std::exception&)
 	{
