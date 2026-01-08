@@ -16,5 +16,8 @@
         "imgui"
       ]
     }
+  ],
+  "overlay-ports": [
+    "vcpkg-ports"
   ]
 }

@@ -6,7 +6,19 @@
 OptionsMenu optionsMenu;
 
 void OptionsMenu::Draw()
-{	
+{
+	ImGui::InputText("Sentry DNS", sentryDsn, sizeof(sentryDsn));
+	if (ImGui::Checkbox("Enable Sentry reporting", &enableSentryReporting))
+	{
+		if (enableSentryReporting && strnlen_s(sentryDsn, sizeof(sentryDsn)) == 0)
+		{
+			enableSentryReporting = false;
+		}
+
+		crashHandler.ToggleSentryReporting(enableSentryReporting, sentryDsn);
+	}
+
+	ImGui::Separator();
 	if (ImGui::Checkbox("Enable AddVectoredExceptionHandler", &enableAddVectoredExceptionHandler))
 	{
 		crashHandler.ToggleAddVectoredExceptionHandler(enableAddVectoredExceptionHandler);

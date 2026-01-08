@@ -1,6 +1,8 @@
 #pragma once
+#define SENTRY_BUILD_STATIC 1
 #include <crtdbg.h>
 #include <windows.h>
+#include <string>
 
 class CrashHandler
 {
@@ -10,6 +12,7 @@ public:
 	void ToggleSetUnhandledExceptionFilter(bool enable);
 	void Toggle_set_invalid_parameter_handler(bool enable);
 	void Toggle_CrtSetReportMode(bool enable);
+	void ToggleSentryReporting(bool enable, std::string dsn);
 	void Unload();
 private:
 	PVOID addVectoredExceptionHandlerHandle;

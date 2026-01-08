@@ -1,4 +1,5 @@
 #include "CrashHandler.h"
+#include <sentry.h>
 
 CrashHandler crashHandler;
 
@@ -81,6 +82,27 @@ void CrashHandler::Toggle_CrtSetReportMode(bool enable)
 	{
 		_CrtSetReportMode(_CRT_ERROR, previousCrtReportModeError);
 		_CrtSetReportMode(_CRT_ASSERT, previousCrtReportModeAssert);
+	}
+}
+
+void CrashHandler::ToggleSentryReporting(bool enable, std::string dsn)
+{
+	if (enable)
+	{
+		sentry_options_t* options = sentry_options_new();
+		sentry_options_set_dsn(options, dsn.c_str());
+
+		// Disable everything else other than crash reports
+		sentry_options_set_auto_session_tracking(options, false);
+		sentry_options_set_max_breadcrumbs(options, 0);
+		sentry_options_set_require_user_consent(options, true);
+		sentry_options_set_system_crash_reporter_enabled(options, false);
+
+		sentry_init(options);
+	}
+	else
+	{
+		sentry_close();
 	}
 }
 

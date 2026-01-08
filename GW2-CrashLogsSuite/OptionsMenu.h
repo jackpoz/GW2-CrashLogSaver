@@ -4,6 +4,8 @@ class OptionsMenu
 public:
 	void Draw();
 private:
+	char sentryDsn[256];
+	bool enableSentryReporting;
 	bool enableAddVectoredExceptionHandler;
 	bool enableAddVectoredContinueHandler;
 	bool enableSetUnhandledExceptionFilter;
