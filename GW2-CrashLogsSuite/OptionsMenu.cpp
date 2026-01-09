@@ -7,7 +7,7 @@ OptionsMenu optionsMenu;
 
 void OptionsMenu::Draw()
 {
-	ImGui::InputText("Sentry DNS", sentryDsn, sizeof(sentryDsn));
+	ImGui::InputText("Sentry DSN", sentryDsn, sizeof(sentryDsn));
 	if (ImGui::Checkbox("Enable Sentry reporting", &enableSentryReporting))
 	{
 		if (enableSentryReporting && strnlen_s(sentryDsn, sizeof(sentryDsn)) == 0)

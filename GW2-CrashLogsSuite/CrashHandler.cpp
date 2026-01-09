@@ -1,4 +1,5 @@
 #include "CrashHandler.h"
+#include "version.h"
 #include <sentry.h>
 
 CrashHandler crashHandler;
@@ -85,6 +86,19 @@ void CrashHandler::Toggle_CrtSetReportMode(bool enable)
 	}
 }
 
+std::filesystem::path CrashHandler::GetModuleDirectoryPath()
+{
+	HMODULE hModule = nullptr;
+	// Use the address of this function to get the module that contains it
+	GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, reinterpret_cast<LPCSTR>(&sentry_init), &hModule);
+
+	char buffer[MAX_PATH];
+	GetModuleFileNameA(hModule, buffer, MAX_PATH);
+
+	std::filesystem::path p = buffer;
+	return p.parent_path();
+}
+
 void CrashHandler::ToggleSentryReporting(bool enable, std::string dsn)
 {
 	if (enable)
@@ -92,13 +106,23 @@ void CrashHandler::ToggleSentryReporting(bool enable, std::string dsn)
 		sentry_options_t* options = sentry_options_new();
 		sentry_options_set_dsn(options, dsn.c_str());
 
+		auto dll_dir = GetModuleDirectoryPath();
+		auto handler = dll_dir / "crashpad_handler.exe";
+		sentry_options_set_handler_path(options, handler.string().c_str());
+
+		sentry_options_set_release(options, VERSION_FULL_STRING);
+
 		// Disable everything else other than crash reports
 		sentry_options_set_auto_session_tracking(options, false);
 		sentry_options_set_max_breadcrumbs(options, 0);
 		sentry_options_set_require_user_consent(options, true);
 		sentry_options_set_system_crash_reporter_enabled(options, false);
 
-		sentry_init(options);
+		if (sentry_init(options))
+		{
+			printf("Failed to initialize Sentry SDK\n");
+			return;
+		}
 	}
 	else
 	{

@@ -2,6 +2,7 @@
 #define SENTRY_BUILD_STATIC 1
 #include <crtdbg.h>
 #include <windows.h>
+#include <filesystem>
 #include <string>
 
 class CrashHandler
@@ -15,6 +16,8 @@ public:
 	void ToggleSentryReporting(bool enable, std::string dsn);
 	void Unload();
 private:
+	std::filesystem::path GetModuleDirectoryPath();
+
 	PVOID addVectoredExceptionHandlerHandle;
 	PVOID addVectoredContinueHandlerHandle;
 	LPTOP_LEVEL_EXCEPTION_FILTER previousUnhandledExceptionFilterHandler;
